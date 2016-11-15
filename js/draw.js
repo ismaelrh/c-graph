@@ -249,3 +249,14 @@ function changeSelect() {
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     loadData(selectedValue);
 }
+
+function resetNodes() {
+    console.log("Reset nodes");
+
+    var updateArray = [];
+    data.edges.forEach(function(edge){
+        updateArray.push({id:edge.id,hidden:false});
+    });
+
+    data.edges.update(updateArray);
+}

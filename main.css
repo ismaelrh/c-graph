@@ -28,18 +28,45 @@ html, body {
   background-color: transparent;
   z-index: 2;
 }
-.bottom {
+.controls-div {
   position: absolute;
-  background-color: #222222;
-  right: 0;
+  background-color: transparent;
+  /*right: 0;*/
+  width: 15%;
+  height: 30%;
   bottom: 0;
-  left: 0;
-  padding: 1rem;
+  /*left: 0;*/
+  /*padding: 1rem;*/
   text-align: center;
+  z-index: 2;
+  font-size: 1.8em;
+  font-style: normal;
+  padding: 15px;
+  margin: 25px;
+  background-color: transparent;
+  text-align: left;
 }
 .option_button {
   width: 230px;
 }
 .text{
   color: white;
+}
+#reset-button {
+  font-size: 1.8em;
+  height: 80px;
+  width: 180px;
+  background-color: white;
+  padding: 8px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+#groupSelect {
+  font-size: 1.2em;
+  height: 50px;
+  padding: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 5px;
 }
