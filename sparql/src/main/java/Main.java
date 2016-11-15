@@ -28,6 +28,28 @@ public class Main {
 
     Spark.port(3031);
 
+    options("/*",
+            (request, response) -> {
+
+              String accessControlRequestHeaders = request
+                      .headers("Access-Control-Request-Headers");
+              if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers",
+                        accessControlRequestHeaders);
+              }
+
+              String accessControlRequestMethod = request
+                      .headers("Access-Control-Request-Method");
+              if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods",
+                        accessControlRequestMethod);
+              }
+
+              return "OK";
+            });
+
+    before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
     System.out.println("Server is up at port 3031. Make sure that Jena Fuseki is running");
 
     get("/query", (req, res) -> returnJson(req,res,req.queryParams("property")));
@@ -41,7 +63,15 @@ public class Main {
     System.out.println("Query from" +  req.ip());
 
 
-    property = "<http://copyrightevidence.org/evidence-wiki/index.php/Special:URIResolver/Property-3A" + property + ">";
+    if(property.equalsIgnoreCase("category")){
+      property =  "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>";
+    }
+    else{
+      property = "<http://copyrightevidence.org/evidence-wiki/index.php/Special:URIResolver/Property-3A" + property + ">";
+    }
+
+
+
 
     res.header("Content-Type","application/json");
     //Check if it is in cache

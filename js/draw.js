@@ -7,9 +7,10 @@ var hash = {};
 // Global counters
 var idCounter = 1;
 
-function parseData() {
+//
+function parseData(inputData) {
     // First loop: define all nodes
-    input.forEach(function(entry) {
+    inputData.forEach(function(entry) {
         // Push current entry into node array
         nodes.push({
             id: idCounter,
@@ -23,7 +24,7 @@ function parseData() {
     });
 
     // Second loop: define all edges
-    input.forEach(function(entry) {
+    inputData.forEach(function(entry) {
         // For each outgoing edge, draw it
         if (entry.outgoing_edges) {
             entry.outgoing_edges.forEach(function(edge) {
@@ -41,8 +42,8 @@ function parseData() {
 
 
 
-function draw() {
-    parseData();
+function draw(inputData) {
+    parseData(inputData);
 
     // Instantiate our network object.
     var container = document.getElementById('main_network');
@@ -97,3 +98,26 @@ function draw() {
     };
     network = new vis.Network(container, data, options);
 }
+
+  function loadData(property){
+
+
+    if(!property){
+      property="Has_country";
+    }
+
+    console.log(property);
+    $.getJSON('http://localhost:3031/query?property=' + property, function(data) {
+      //data is the JSON string
+      draw(data);
+      //console.log(data);
+    });
+
+  }
+
+
+  function changeSelect(){
+    var selectBox = document.getElementById("groupSelect");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    loadData(selectedValue);
+  }
