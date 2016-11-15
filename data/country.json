@@ -1,0 +1,14 @@
+{
+  "title": "Spain",
+  "weight": 132,
+  "outgoint_edges": [
+    {
+      "destination": "France",
+      "weight": 33
+    },
+    {
+      "destination": "Belgium",
+      "weight": 177
+    }
+  ]
+}
