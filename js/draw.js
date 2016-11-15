@@ -117,10 +117,10 @@ function draw(inputData) {
             },
             scaling: {
                 min: 10,
-                max: 35,
+                max: 90,
                 label: {
-                    min: 8,
-                    max: 20
+                    min: 50,
+                    max: 50
                 }
             }
         },
@@ -139,7 +139,7 @@ function draw(inputData) {
         edges: {
             scaling: {
                 min: 1,
-                max: 10,
+                max: 30,
                 label: {
                     min: 8,
                     max: 20
@@ -151,6 +151,31 @@ function draw(inputData) {
         }
     };
     network = new vis.Network(container, data, options);
+
+    network.on("click", function (params) {
+  var clickedNode = params.nodes[0];
+      if(clickedNode){
+        network.moveNode(clickedNode,0,0);
+
+          var numberNodes = nodes.length;
+          var anglesPerNode = 360/(nodes.length-1);
+          var positionedNodes = 0;
+          var currentAngle = 0;
+          for(var i = 0; i < numberNodes ; i ++){
+            if(i!=clickedNode){
+              var x = 0 + 30*Math.cos(currentAngle);
+              var y = 0 + 30*Math.sin(currentAngle);
+              currentAngle += anglesPerNode;
+              network.moveNode(i,x,y);
+            }
+          }
+      }
+
+
+        //params.nodes[0].x = 0;
+        //console.log(nodes);
+
+    });
 }
 
   function loadData(property){
