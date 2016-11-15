@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
-<body onload="draw()">
+<body onload=" loadData();">
     <div id="main_network"></div>
 
     <!-- TagCloud canvas -->
@@ -34,14 +34,10 @@
         <b class="text">Group by:&nbsp;</b>
         <select id="easingFunction" class="option_button">
         <option value="author">Author</option>
-        <option value="concept">Concept</option>
-        <option value="category">Category</option>
+
+        <option value="category" >Category</option>
         <option value="country" selected="selected">Country</option>
-        <option value="methodology">Methodology (Analysis)</option>
-        <option value="f_issues">Fundamental issues about the copyright incentive</option>
-        <option value="p_issues">Copyright policy issues</option>
-        <option value="industries">Industry Sector</option>
-        <option value="year">Year</option>
+
         </select><br/>
     </div>
 
