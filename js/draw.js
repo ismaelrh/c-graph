@@ -130,6 +130,9 @@ function parseData(inputData) {
 function draw(inputData) {
     parseData(inputData);
 
+    // Set tag cloud
+    setTagCloud();
+
     // Instantiate our network object.
     var container = document.getElementById('main_network');
     data = {
@@ -184,39 +187,47 @@ function draw(inputData) {
     network = new vis.Network(container, data, options);
 
 
-    network.on("click", function (params) {
+    network.on("click", function(params) {
 
-      console.log(edges);
+        console.log(edges);
 
-      if(params.nodes[0] && params.nodes[0]!=clickedNode){
-        clickedNode = params.nodes[0];
-        network.moveNode(clickedNode,0,0);
+        if (params.nodes[0] && params.nodes[0] != clickedNode) {
+            clickedNode = params.nodes[0];
+            network.moveNode(clickedNode, 0, 0);
 
-        var numberNodes = nodes.length;
-        var anglesPerNode = 360/(nodes.length-1);
-        var positionedNodes = 0;
-        var currentAngle = 0;
-        for(var i = 0; i < numberNodes ; i ++){
-          if(i!=clickedNode){
-            var x = 0 + 30*Math.cos(currentAngle);
-            var y = 0 + 30*Math.sin(currentAngle);
-            currentAngle += anglesPerNode;
-            network.moveNode(i,x,y);
-          }
-        }
+            // Generate tag cloud
+            setTagCloud();
 
-        var edges = network.getConnectedEdges(clickedNode);
-        var updateArray = [];
-        data.edges.forEach(function(edge){
-          if(edge.from==clickedNode || edge.to==clickedNode){
-            updateArray.push({id:edge.id,hidden:false});
+            var numberNodes = nodes.length;
+            var anglesPerNode = 360 / (nodes.length - 1);
+            var positionedNodes = 0;
+            var currentAngle = 0;
+            for (var i = 0; i < numberNodes; i++) {
+                if (i != clickedNode) {
+                    var x = 0 + 30 * Math.cos(currentAngle);
+                    var y = 0 + 30 * Math.sin(currentAngle);
+                    currentAngle += anglesPerNode;
+                    network.moveNode(i, x, y);
+                }
+            }
 
-          }
-          else {
-            updateArray.push({id:edge.id,hidden:true});
-          }
-        });
-          data.edges.update(updateArray);
+            var edges = network.getConnectedEdges(clickedNode);
+            var updateArray = [];
+            data.edges.forEach(function(edge) {
+                if (edge.from == clickedNode || edge.to == clickedNode) {
+                    updateArray.push({
+                        id: edge.id,
+                        hidden: false
+                    });
+
+                } else {
+                    updateArray.push({
+                        id: edge.id,
+                        hidden: true
+                    });
+                }
+            });
+            data.edges.update(updateArray);
         }
 
 
@@ -265,4 +276,25 @@ function resetNodes() {
     });
 
     data.edges.update(updateArray);
+}
+
+
+function setTagCloud() {
+    var length = 8;
+    $('#foo_canvas').empty();
+    var cloud = [];
+    for (var i = 0; i <= 8; i++) {
+        var index = Math.floor(Math.random() * words.length);
+        var rand = words[index];
+        while(cloud.indexOf(rand)!=-1){
+          index = Math.floor(Math.random() * words.length);
+          rand = words[index];
+        }
+        ////
+        var tag_text = "<a href=\"" + urls[index] + "\" style=\"font-size: " + 1.2 * (i+1) + "ex\">" + rand + "</a>";
+        $('#foo_canvas').append(tag_text);
+        cloud.push(rand);
+    }
+    TagCanvas.Update('foo_canvas');
+    TagCanvas.Resume('foo_canvas');
 }

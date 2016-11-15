@@ -18,11 +18,9 @@ html, body {
 
 #foo_canvas{
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 250px;
   display: block;
-  bottom: 0;
-  /*height: 70%;*/
   left: 0;
   top: 0;
   background-color: transparent;
