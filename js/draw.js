@@ -6,7 +6,8 @@ var hash = {};
 var data = {};
 
 // Global counters
-var idCounter = 1;
+var idCounter = 1; <<
+<< << < HEAD
 var percentColors = [{
     pct: 0.0,
     color: {
@@ -28,7 +29,32 @@ var percentColors = [{
         g: 0x00,
         b: 0
     }
-}];
+}]; ===
+=== =
+var clickedNode;
+var percentColors = [{
+    pct: 0.0,
+    color: {
+        r: 0x00,
+        g: 0xff,
+        b: 0
+    }
+}, {
+    pct: 0.5,
+    color: {
+        r: 0xff,
+        g: 0xff,
+        b: 0
+    }
+}, {
+    pct: 1.0,
+    color: {
+        r: 0xff,
+        g: 0x00,
+        b: 0
+    }
+}]; >>>
+>>> > c81bd0bcb15b638de67a42a8160cdf5eeaba0e50
 
 var getColorForPercentage = function(pct) {
     for (var i = 1; i < percentColors.length - 1; i++) {
@@ -182,6 +208,8 @@ function draw(inputData) {
     };
     network = new vis.Network(container, data, options);
 
+    <<
+    << << < HEAD
     network.on("click", function(params) {
 
         console.log(edges);

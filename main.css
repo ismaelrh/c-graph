@@ -1,6 +1,6 @@
 html, body {
   font: 10pt arial;
-  background-color: #222222;
+  background-color: #ffffff;
 }
 #main_network {
   position: absolute;
@@ -8,14 +8,18 @@ html, body {
   bottom: 40px; /* Footer Height */
   left: 0px;
   width: 100%;
-  background-color: #222222;
+   background-image: url("images/back.jpg");
+
   z-index: 1;
 }
 
 #foo_canvas{
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
+  display: block;
+  bottom: 0;
+  /*height: 70%;*/
   left: 0;
   top: 0;
   background-color: transparent;
