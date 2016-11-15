@@ -164,11 +164,14 @@ public class Main {
     for(CountObject group: groups){
       String currentValue = group.get_id();
       List<CountObject> linksForValue = getLinks(property,"<" + currentValue + ">");
-      Node node = new Node(normalizeCamelCase(group.get_id()),group.getCount());
-      for(CountObject edge: linksForValue){
-        node.addEdge(normalizeCamelCase(edge.get_id()),edge.getCount());
+      if(linksForValue != null){
+        Node node = new Node(normalizeCamelCase(group.get_id()),group.getCount());
+        for(CountObject edge: linksForValue){
+          node.addEdge(normalizeCamelCase(edge.get_id()),edge.getCount());
+        }
+        result.add(node);
       }
-      result.add(node);
+
     }
     return result;
   }
@@ -193,20 +196,30 @@ public class Main {
     QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://localhost:3030/euhackathon/sparql", query );
     ResultSet results = qExe.execSelect();
 
+    int totalCites = 0;
     while(results.hasNext()){
       QuerySolution row = results.next();
       //System.out.println(row);
       if(row.getLiteral("count") != null && row.getResource("countryDest")!=null){
         int count = row.getLiteral("count").getInt();
         String countryDest = row.getResource("countryDest").getURI().toString();
+        if(!countryDest.equalsIgnoreCase(valueGroupedBy))        {
+          totalCites+=count;
+        }
+
         //System.out.println(countryDest + " - " + count);
-        if(filter(property,countryDest)){
+        if(filter(property,countryDest,count)){
           result.add(new CountObject(countryDest,count));
         }
 
       }
 
       //result.add(new CountObject(group,count));
+    }
+
+
+    if(totalCites<=10 && property.contains("written")){
+               return null;
     }
     return result;
 
@@ -230,19 +243,22 @@ public class Main {
 
     //System.out.println("Hola");
     //System.out.println(results.getRowNumber());
+
     while(results.hasNext()){
       QuerySolution row = results.next();
       if(row.getLiteral("count")!=null && row.getResource("group")!= null){
         int count = row.getLiteral("count").getInt();
         String group = row.getResource("group").getURI().toString();
         //System.out.println(group);
-        if(filter(property,group)){
+
+        if(filter(property,group,count)){
           result.add(new CountObject(group,count));
         }
 
       }
 
     }
+
     //ResultSetFormatter.out(System.out, results, query) ;
 
     return result;
@@ -250,14 +266,16 @@ public class Main {
 
 
 
-  public static boolean filter(String property, String value){
+  public static boolean filter(String property, String value, int count){
 
-    Runtime runtime = Runtime.getRuntime();
-
-
-    //Print free memory
-    //System.out.println("Used Memory:"
-      //      + (runtime.totalMemory() - runtime.freeMemory()) + "/ mb");
+   if(property.contains("written")){
+     if(count<=1){
+       return false;
+     }
+     else{
+       return true;
+     }
+   }
 
     System.out.println(value);
 
