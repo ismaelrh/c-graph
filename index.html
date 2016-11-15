@@ -16,7 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="draw()">
+    <div id="main_network"></div>
 
     <!-- TagCloud canvas -->
     <canvas id="foo_canvas" width="300" height="300" style="border:1px solid #000000;">
@@ -26,7 +27,26 @@
       <a href="/author_3">Author 3</a>
       <a href="/author_4">Author 4</a>
     </canvas>
-    
+
+    <div class="bottom">
+        <b class="text">Group by:&nbsp;</b>
+        <select id="easingFunction" class="option_button">
+        <option value="linear">linear</option>
+        <option value="easeInQuad">easeInQuad</option>
+        <option value="easeOutQuad">easeOutQuad</option>
+        <option value="easeInOutQuad" selected="selected">easeInOutQuad</option>
+        <option value="easeInCubic">easeInCubic</option>
+        <option value="easeOutCubic">easeOutCubic</option>
+        <option value="easeInOutCubic">easeInOutCubic</option>
+        <option value="easeInQuart">easeInQuart</option>
+        <option value="easeOutQuart">easeOutQuart</option>
+        <option value="easeInOutQuart">easeInOutQuart</option>
+        <option value="easeInQuint">easeInQuint</option>
+        <option value="easeOutQuint">easeOutQuint</option>
+        <option value="easeInOutQuint">easeInOutQuint</option>
+        </select><br/>
+    </div>
+
 </body>
 
 </html>

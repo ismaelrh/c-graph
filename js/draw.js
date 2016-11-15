@@ -65,12 +65,6 @@ function draw() {
             }
         },
         physics: true,
-        configure: function(option, path) {
-            if (path.indexOf('smooth') !== -1 || option === 'smooth') {
-                return true;
-            }
-            return false;
-        },
         edges: {
             scaling: {
                 min: 1,
