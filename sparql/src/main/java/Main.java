@@ -86,6 +86,8 @@ public class Main {
 
         List<Node> graph =
           generateGroupingGraph(property);
+
+
         Formatter formatter = new Formatter(file);
         String response =  gson.toJson(graph);
 
