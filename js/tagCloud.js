@@ -8,6 +8,7 @@ window.onload = function() {
             weightSize: 1.0,
             weightSizeMax: 1,
             weightSizeMin: 0,
+            wheelZoom: false,
             dragControl: true,
             /*zoomMax: 1.0,
             zoomMin: 1.0,*/
