@@ -45,7 +45,9 @@ function parseData(inputData) {
         nodes.push({
             id: idCounter,
             value: entry.weight,
-            label: entry.title
+            label: entry.title,
+            title: "<b>Name:</b> " +
+                   entry.title + "</br><b>Weight: </b>" + entry.weight
         });
 
         // Set hash of current node
