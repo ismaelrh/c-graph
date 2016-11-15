@@ -5,7 +5,7 @@ html, body {
 #main_network {
   position: absolute;
   top: 0px; /* Header Height */
-  bottom: 40px; /* Footer Height */
+  bottom: 0px; /* Footer Height */
   left: 0px;
   width: 100%;
 
@@ -33,7 +33,7 @@ html, body {
   width: 15%;
   height: 30%;
   bottom: 0;
-  /*left: 0;*/
+  left: 0;
   /*padding: 1rem;*/
   text-align: center;
   z-index: 2;
