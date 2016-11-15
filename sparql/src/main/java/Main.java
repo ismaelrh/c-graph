@@ -197,7 +197,10 @@ public class Main {
         int count = row.getLiteral("count").getInt();
         String countryDest = row.getResource("countryDest").getURI().toString();
         //System.out.println(countryDest + " - " + count);
-        result.add(new CountObject(countryDest,count));
+        if(filter(property,countryDest)){
+          result.add(new CountObject(countryDest,count));
+        }
+
       }
 
       //result.add(new CountObject(group,count));
@@ -229,12 +232,56 @@ public class Main {
         int count = row.getLiteral("count").getInt();
         String group = row.getResource("group").getURI().toString();
         //System.out.println(group);
-        result.add(new CountObject(group,count));
+        if(filter(property,group)){
+          result.add(new CountObject(group,count));
+        }
+
       }
 
     }
     //ResultSetFormatter.out(System.out, results, query) ;
 
     return result;
+  }
+
+
+  public static boolean filter(String property, String value){
+
+    System.out.println(value);
+
+    int lastIndex = value.lastIndexOf("/");
+    String cutVal = value.substring(lastIndex+1,value.length());
+    if(property.contains("Has_country")) {
+
+
+        switch(cutVal){
+          case "Spain":
+            return true;
+          case "Belgium":
+            return true;
+          case "France":
+            return true;
+          case "Italy":
+            return true;
+          case "Germany":
+            return true;
+          case "Greece":
+            return true;
+          case "Ireland":
+            return true;
+          case "Portugal":
+            return true;
+          case "Sweden":
+            return true;
+          case "United Kingdom":
+            return true;
+
+          default:
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
   }
 }
