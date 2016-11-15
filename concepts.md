@@ -53,3 +53,35 @@ List of all studies about this topic:
 #### Social Media
 
 #### Streaming
+
+#### False positives
+
+A false positive occurs when enforcement actions are taken against uses that are not actual infringements.
+
+#### Piracy
+
+#### Metadata
+
+#### Criminal sanctions
+
+#### Attribution control
+
+#### Technology adoption
+
+#### ISP
+
+#### Freelancers
+
+#### Moral rights
+
+#### Human rights
+
+#### Downloads
+
+#### EDM
+
+#### P2P
+
+#### File sharing
+
+#### Non-IP markets

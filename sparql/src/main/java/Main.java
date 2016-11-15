@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import edu.uci.ics.jung.algorithms.scoring.PageRank;
 import org.apache.jena.query.*;
 import spark.Request;
 import spark.Response;
@@ -86,6 +87,8 @@ public class Main {
 
         List<Node> graph =
           generateGroupingGraph(property);
+
+
         Formatter formatter = new Formatter(file);
         String response =  gson.toJson(graph);
 
@@ -213,6 +216,7 @@ public class Main {
 
 
 
+
     List<CountObject> result = new ArrayList<CountObject>();
     String s2 = "SELECT ?group (COUNT(?subject) as ?count)\n" +
       "WHERE{\n" +
@@ -246,6 +250,13 @@ public class Main {
 
 
   public static boolean filter(String property, String value){
+
+    Runtime runtime = Runtime.getRuntime();
+
+
+    //Print free memory
+    //System.out.println("Used Memory:"
+      //      + (runtime.totalMemory() - runtime.freeMemory()) + "/ mb");
 
     System.out.println(value);
 
@@ -281,7 +292,7 @@ public class Main {
         }
     }
     else{
-        return false;
+        return true;
     }
   }
 }

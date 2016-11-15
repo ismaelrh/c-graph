@@ -100,7 +100,7 @@ function parseData(inputData) {
     });
 
     var dif = max - min;
-    console.log("Max is " + max + ", min is " + min + " and difference is " + dif);
+    //console.log("Max is " + max + ", min is " + min + " and difference is " + dif);
 
     // Second loop: define all edges
     inputData.forEach(function(entry) {
@@ -111,7 +111,7 @@ function parseData(inputData) {
         if (entry.outgoing_edges) {
             entry.outgoing_edges.forEach(function(edge) {
 
-                console.log("Weight: " + edge.weight + " percentage:" + ((edge.weight - min) / dif));
+                //console.log("Weight: " + edge.weight + " percentage:" + ((edge.weight - min) / dif));
                 edges.push({
                     from: hash[entry.title],
                     to: hash[edge.destination],
@@ -240,11 +240,12 @@ function draw(inputData) {
 function loadData(property) {
 
 
+    console.log("Loading property " + property);
     if (!property) {
         property = "Has_country";
     }
 
-    console.log(property);
+
     $.getJSON('http://localhost:3031/query?property=' + property, function(data) {
         //data is the JSON string
         draw(data);
@@ -254,10 +255,27 @@ function loadData(property) {
 }
 
 
-function changeSelect() {
+function changeSelect(newValue) {
+  if(!newValue){
     var selectBox = document.getElementById("groupSelect");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     loadData(selectedValue);
+  }
+  else{
+    loadData(newValue);
+  }
+
+}
+
+function resetNodes() {
+    console.log("Reset nodes");
+
+    var updateArray = [];
+    data.edges.forEach(function(edge){
+        updateArray.push({id:edge.id,hidden:false});
+    });
+
+    data.edges.update(updateArray);
 }
 
 
