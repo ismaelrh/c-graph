@@ -6,8 +6,7 @@ var hash = {};
 var data = {};
 
 // Global counters
-var idCounter = 1; <<
-<< << < HEAD
+var idCounter = 1;
 var percentColors = [{
     pct: 0.0,
     color: {
@@ -29,32 +28,8 @@ var percentColors = [{
         g: 0x00,
         b: 0
     }
-}]; ===
-=== =
+}];
 var clickedNode;
-var percentColors = [{
-    pct: 0.0,
-    color: {
-        r: 0x00,
-        g: 0xff,
-        b: 0
-    }
-}, {
-    pct: 0.5,
-    color: {
-        r: 0xff,
-        g: 0xff,
-        b: 0
-    }
-}, {
-    pct: 1.0,
-    color: {
-        r: 0xff,
-        g: 0x00,
-        b: 0
-    }
-}]; >>>
->>> > c81bd0bcb15b638de67a42a8160cdf5eeaba0e50
 
 var getColorForPercentage = function(pct) {
     for (var i = 1; i < percentColors.length - 1; i++) {
@@ -208,47 +183,40 @@ function draw(inputData) {
     };
     network = new vis.Network(container, data, options);
 
-    <<
-    << << < HEAD
-    network.on("click", function(params) {
 
-        console.log(edges);
-        var clickedNode = params.nodes[0];
-        if (clickedNode) {
-            network.moveNode(clickedNode, 0, 0);
+    network.on("click", function (params) {
 
-            var numberNodes = nodes.length;
-            var anglesPerNode = 360 / (nodes.length - 1);
-            var positionedNodes = 0;
-            var currentAngle = 0;
-            for (var i = 0; i < numberNodes; i++) {
-                if (i != clickedNode) {
-                    var x = 0 + 30 * Math.cos(currentAngle);
-                    var y = 0 + 30 * Math.sin(currentAngle);
-                    currentAngle += anglesPerNode;
-                    network.moveNode(i, x, y);
-                }
-            }
+      console.log(edges);
 
-            var edges = network.getConnectedEdges(clickedNode);
-            var updateArray = [];
-            data.edges.forEach(function(edge) {
-                if (edge.from == clickedNode || edge.to == clickedNode) {
-                    updateArray.push({
-                        id: edge.id,
-                        hidden: false
-                    });
+      if(params.nodes[0] && params.nodes[0]!=clickedNode){
+        clickedNode = params.nodes[0];
+        network.moveNode(clickedNode,0,0);
 
-                } else {
-                    updateArray.push({
-                        id: edge.id,
-                        hidden: true
-                    });
-                }
-            });
+        var numberNodes = nodes.length;
+        var anglesPerNode = 360/(nodes.length-1);
+        var positionedNodes = 0;
+        var currentAngle = 0;
+        for(var i = 0; i < numberNodes ; i ++){
+          if(i!=clickedNode){
+            var x = 0 + 30*Math.cos(currentAngle);
+            var y = 0 + 30*Math.sin(currentAngle);
+            currentAngle += anglesPerNode;
+            network.moveNode(i,x,y);
+          }
+        }
 
-            data.edges.update(updateArray);
+        var edges = network.getConnectedEdges(clickedNode);
+        var updateArray = [];
+        data.edges.forEach(function(edge){
+          if(edge.from==clickedNode || edge.to==clickedNode){
+            updateArray.push({id:edge.id,hidden:false});
 
+          }
+          else {
+            updateArray.push({id:edge.id,hidden:true});
+          }
+        });
+          data.edges.update(updateArray);
         }
 
 

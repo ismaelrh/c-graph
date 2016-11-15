@@ -1,6 +1,6 @@
 html, body {
   font: 10pt arial;
-  background-color: #ffffff;
+  background-color: #222222;
 }
 #main_network {
   position: absolute;
@@ -8,7 +8,7 @@ html, body {
   bottom: 40px; /* Footer Height */
   left: 0px;
   width: 100%;
-   background-image: url("images/back.jpg");
+  background-color: #222222;
 
   z-index: 1;
 }
