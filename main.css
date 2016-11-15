@@ -1,6 +1,6 @@
 html, body {
   font: 10pt arial;
-  background-color: #ffffff;
+  background-color: #222222;
 }
 #main_network {
   position: absolute;
@@ -10,13 +10,19 @@ html, body {
   width: 100%;
 
   background-color: #222222;
+
+
+  background-color: #222222;
   z-index: 1;
 }
 
 #foo_canvas{
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
+  display: block;
+  bottom: 0;
+  /*height: 70%;*/
   left: 0;
   top: 0;
   background-color: transparent;
