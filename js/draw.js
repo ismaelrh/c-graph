@@ -6,10 +6,40 @@ var hash = {};
 
 // Global counters
 var idCounter = 1;
+var percentColors = [
+    { pct: 0.0, color: { r: 0x00, g: 0xff, b: 0 } },
+    { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
+    { pct: 1.0, color: { r: 0xff, g: 0x00, b: 0 } } ];
+
+var getColorForPercentage = function(pct) {
+    for (var i = 1; i < percentColors.length - 1; i++) {
+        if (pct < percentColors[i].pct) {
+            break;
+        }
+    }
+    var lower = percentColors[i - 1];
+    var upper = percentColors[i];
+    var range = upper.pct - lower.pct;
+    var rangePct = (pct - lower.pct) / range;
+    var pctLower = 1 - rangePct;
+    var pctUpper = rangePct;
+    var color = {
+        r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
+        g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
+        b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
+    };
+    var result = 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
+    //console.log(result);
+    return result;
+    // or output as hex if preferred
+}
 
 //
 function parseData(inputData) {
     // First loop: define all nodes
+    var min = 999999999;
+    var max = -1;
+
     inputData.forEach(function(entry) {
         // Push current entry into node array
         nodes.push({
@@ -21,18 +51,42 @@ function parseData(inputData) {
         // Set hash of current node
         hash[entry.title] = idCounter;
         idCounter++;
+
+        // For each outgoing edge, draw it
+
+
+        if(entry.outgoing_edges){
+          entry.outgoing_edges.forEach(function(edge) {
+
+            if(edge.weight < min){
+              min = edge.weight;
+            }
+            if(edge.weight > max ){
+              max = edge.weight;
+            }
+          });
+        }
     });
+
+  var dif = max - min;
+    console.log("Max is " + max + ", min is " + min + " and difference is " + dif);
 
     // Second loop: define all edges
     inputData.forEach(function(entry) {
-        // For each outgoing edge, draw it
+
+
+
+
         if (entry.outgoing_edges) {
             entry.outgoing_edges.forEach(function(edge) {
+
+                console.log("Weight: " + edge.weight + " percentage:" + ((edge.weight - min)/dif));
                 edges.push({
                     from: hash[entry.title],
                     to: hash[edge.destination],
-                    value: edge.weight,
+                    value: edge.weight*10,
                     title: edge.weight + ' references',
+                    color: getColorForPercentage((edge.weight - min)/dif),
                     arrows: 'to'
                 });
             });
