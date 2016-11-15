@@ -244,10 +244,16 @@ function loadData(property) {
 }
 
 
-function changeSelect() {
+function changeSelect(newValue) {
+  if(!newValue){
     var selectBox = document.getElementById("groupSelect");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     loadData(selectedValue);
+  }
+  else{
+    loadData(newValue);
+  }
+
 }
 
 function resetNodes() {

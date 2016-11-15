@@ -2,41 +2,75 @@
 <html>
 
 <head>
-    <title>Copyright evidence | Visualisation | Network</title>
+  <title>Copyright evidence | Visualisation | Network</title>
 
-    <script type="text/javascript" src="node_modules/vis/dist/vis.js"></script>
-    <link href="node_modules/vis/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="node_modules/vis/dist/vis.js"></script>
+  <link href="node_modules/vis/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="./main.css" rel="stylesheet" type="text/css" />
+  <link href="./main.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="./js/draw.js"></script>
-    <script type="text/javascript" src="./data/query.json"></script>
-    <script src="js/tagcanvas.js" type="text/javascript"></script>
-    <script src="js/tagCloud.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/draw.js"></script>
+  <script type="text/javascript" src="./data/query.json"></script>
+  <script src="js/tagcanvas.js" type="text/javascript"></script>
+  <script src="js/tagCloud.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body onload=" loadData();">
-    <div id="main_network"></div>
+  <div id="main_network"></div>
 
-    <!-- TagCloud canvas -->
-      <canvas id="foo_canvas">
-      </canvas>
+  <!-- TagCloud canvas -->
+  <canvas id="foo_canvas">
+  </canvas>
 
-    <script>fillTagCloud(tagCloudTopics);</script>
-    <div class="controls-div">
-        <div>
-          <b class="text">Group by:&nbsp;</b>
-
-          <select id="groupSelect" class="option_button" onchange="changeSelect();">
-            <option value="Was_written_by">Author</option>
-            <option value="Category" >Category</option>
-            <option value="Has_country" selected="selected">Country</option>
-          </select>
+  <script>fillTagCloud(tagCloudTopics);</script>
+  <div class="controls-div ">
+    <div class="row">
+      <div class="col-sm-6 col-xm-6" style="padding:2px !important;"  onclick="changeSelect('Was_written_by')">
+        <div style="margin:0px !important; padding:0px !important;">
+          <button type="button" class="btn btn-block btn-primary" >
+            <span class="glyphicon glyphicon-user"><br/>Author</span>
+          </button>
         </div>
-
-        <button id="reset-button" type="button" onclick="resetNodes()">Clear</button>
+      </div>
+      <div class="col-sm-6 col-xm-6" style=" padding:2px !important;" onclick="changeSelect('Has_country')">
+        <div style="margin:0px !important; padding:0px !important;">
+          <button type="button" class="btn btn-block btn-primary" >
+            <span class="glyphicon glyphicon-map-marker"><br/>Country</span>
+          </button>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-sm-6 col-xm-6" style="padding:2px !important;" onclick="changeSelect('Category')">
+        <div style="margin:0px !important; padding:0px !important;">
+          <button type="button" class="btn btn-block btn-primary" >
+            <span class="glyphicon  glyphicon-align-left"><br/>Category</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xm-6" style=" padding:2px !important;" >
+        <div style="margin:0px !important; padding:0px !important;">
+          <button type="button" class="btn btn-block btn-primary" >
+            <span class="glyphicon glyphicon-chevron-left"><br/>Country</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-xm-12" style="padding:2px !important; margin-top:10px;" onclick="resetNodes()" >
+        <div style="margin:0px !important; padding:0px !important;">
+          <button type="button" class="btn btn-block btn-danger" >
+            <span class="glyphicon glyphicon-remove"><br/>Clear</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
 </body>
