@@ -75,3 +75,13 @@ A false positive occurs when enforcement actions are taken against uses that are
 #### Moral rights
 
 #### Human rights
+
+#### Downloads
+
+#### EDM
+
+#### P2P
+
+#### File sharing
+
+#### Non-IP markets
