@@ -130,6 +130,10 @@ function parseData(inputData) {
 function draw(inputData) {
     parseData(inputData);
 
+    // Empty when no node selected
+    var canvas=document.getElementById('foo_canvas');
+    canvas.style.visibility='hidden';
+
     // Set tag cloud
     setTagCloud();
 
@@ -196,6 +200,8 @@ function draw(inputData) {
             network.moveNode(clickedNode, 0, 0);
 
             // Generate tag cloud
+            var canvas=document.getElementById('foo_canvas');
+            canvas.style.visibility='visible';
             setTagCloud();
 
             var numberNodes = nodes.length;
@@ -274,6 +280,10 @@ function resetNodes() {
     data.edges.forEach(function(edge){
         updateArray.push({id:edge.id,hidden:false});
     });
+
+    // Empty when no node selected
+    var canvas=document.getElementById('foo_canvas');
+    canvas.style.visibility='hidden';
 
     data.edges.update(updateArray);
 }
