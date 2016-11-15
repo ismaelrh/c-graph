@@ -24,17 +24,23 @@
       </canvas>
 
     <script>fillTagCloud(tagCloudTopics);</script>
-    <div class="bottom">
-        <b class="text">Group by:&nbsp;</b>
-        <select id="groupSelect" class="option_button" onchange="changeSelect();">
-          <option value="Was_written_by">Author</option>
+    <div class="controls-div">
+        <div>
+          <b class="text">Group by:&nbsp;</b>
 
-          <option value="Category" >Category</option>
-          <option value="Has_country" selected="selected">Country</option>
+          <select id="groupSelect" class="option_button" onchange="changeSelect();">
+            <option value="Was_written_by">Author</option>
+            <option value="Category" >Category</option>
+            <option value="Has_country" selected="selected">Country</option>
+          </select>
+        </div>
 
-        </select><br/>
+        <button id="reset-button" type="button" onclick="resetNodes()">Clear</button>
     </div>
 
+
 </body>
+
+
 
 </html>
