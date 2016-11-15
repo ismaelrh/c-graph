@@ -30,15 +30,15 @@
     <div class="row">
       <div class="col-sm-6 col-xm-6" style="padding:2px !important;"  onclick="changeSelect('Was_written_by')">
         <div style="margin:0px !important; padding:0px !important;">
-          <button type="button" class="btn btn-block btn-primary" >
+          <button id="button1" type="button" class="btn btn-block btn-primary" onclick="setButton(1)" >
             <span class="glyphicon glyphicon-user"><br/>Author</span>
           </button>
         </div>
       </div>
       <div class="col-sm-6 col-xm-6" style=" padding:2px !important;" onclick="changeSelect('Has_country')">
         <div style="margin:0px !important; padding:0px !important;">
-          <button type="button" class="btn btn-block btn-primary" >
-            <span class="glyphicon glyphicon-map-marker"><br/>Country</span>
+          <button id="button2" type="button" class="btn btn-block btn-primary" onclick="setButton(2)" >
+            <span class="glyphicon glyphicon-map-marker active" ><br/>Country</span>
           </button>
         </div>
       </div>

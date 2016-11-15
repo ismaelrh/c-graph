@@ -298,3 +298,21 @@ function setTagCloud() {
     TagCanvas.Update('foo_canvas');
     TagCanvas.Resume('foo_canvas');
 }
+
+function setButton(btn){
+
+  if(btn==1){
+
+    $("#button1").addClass("active");
+
+    $("#button2").removeClass("active");
+
+  }
+  else{
+    $("#button2").addClass("active");
+
+    $("#button1").removeClass("active");
+  }
+
+
+}
