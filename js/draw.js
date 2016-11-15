@@ -53,7 +53,7 @@ function draw(inputData) {
     };
     var options = {
         layout: {
-          improvedLayout: false
+            improvedLayout: false
         },
         nodes: {
             shape: 'dot',
@@ -70,7 +70,18 @@ function draw(inputData) {
                 }
             }
         },
-        physics: true,
+        physics: {
+            barnesHut: {
+                centralGravity: 0,
+                gravitationalConstant: -50000,
+                springConstant: 0.00001,
+                springLength: 300
+            }
+        },
+        interaction: {
+            tooltipDelay: 100,
+            hideEdgesOnDrag: false
+        },
         edges: {
             scaling: {
                 min: 1,
