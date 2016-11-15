@@ -10,7 +10,7 @@
     <link href="./main.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="./js/draw.js"></script>
-    <script type="text/javascript" src="./data/country.js"></script>
+    <script type="text/javascript" src="./data/query.json"></script>
     <script src="js/tagcanvas.js" type="text/javascript"></script>
     <script src="js/tagCloud.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -33,19 +33,15 @@
     <div class="bottom">
         <b class="text">Group by:&nbsp;</b>
         <select id="easingFunction" class="option_button">
-        <option value="linear">linear</option>
-        <option value="easeInQuad">easeInQuad</option>
-        <option value="easeOutQuad">easeOutQuad</option>
-        <option value="easeInOutQuad" selected="selected">easeInOutQuad</option>
-        <option value="easeInCubic">easeInCubic</option>
-        <option value="easeOutCubic">easeOutCubic</option>
-        <option value="easeInOutCubic">easeInOutCubic</option>
-        <option value="easeInQuart">easeInQuart</option>
-        <option value="easeOutQuart">easeOutQuart</option>
-        <option value="easeInOutQuart">easeInOutQuart</option>
-        <option value="easeInQuint">easeInQuint</option>
-        <option value="easeOutQuint">easeOutQuint</option>
-        <option value="easeInOutQuint">easeInOutQuint</option>
+        <option value="author">Author</option>
+        <option value="concept">Concept</option>
+        <option value="category">Category</option>
+        <option value="country" selected="selected">Country</option>
+        <option value="methodology">Methodology (Analysis)</option>
+        <option value="f_issues">Fundamental issues about the copyright incentive</option>
+        <option value="p_issues">Copyright policy issues</option>
+        <option value="industries">Industry Sector</option>
+        <option value="year">Year</option>
         </select><br/>
     </div>
 

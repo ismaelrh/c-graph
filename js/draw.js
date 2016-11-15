@@ -25,15 +25,17 @@ function parseData() {
     // Second loop: define all edges
     input.forEach(function(entry) {
         // For each outgoing edge, draw it
-        entry.outgoint_edges.forEach(function(edge) {
-            edges.push({
-                from: hash[entry.title],
-                to: hash[edge.destination],
-                value: edge.weight,
-                title: edge.weight + ' references',
-                arrows: 'to'
+        if (entry.outgoing_edges) {
+            entry.outgoing_edges.forEach(function(edge) {
+                edges.push({
+                    from: hash[entry.title],
+                    to: hash[edge.destination],
+                    value: edge.weight,
+                    title: edge.weight + ' references',
+                    arrows: 'to'
+                });
             });
-        });
+        }
     });
 }
 
@@ -49,6 +51,9 @@ function draw() {
         edges: edges
     };
     var options = {
+        layout: {
+          improvedLayout: false
+        },
         nodes: {
             shape: 'dot',
             font: {
