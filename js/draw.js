@@ -43,12 +43,15 @@ var percentColors = [
     var max = -1;
 
     inputData.forEach(function(entry) {
-      // Push current entry into node array
-      nodes.push({
-        id: idCounter,
-        value: entry.weight,
-        label: entry.title
-      });
+        // Push current entry into node array
+        nodes.push({
+            id: idCounter,
+            value: entry.weight,
+            label: entry.title,
+            title: "<b>Name:</b> " +
+                   entry.title + "</br><b>Weight: </b>" + entry.weight
+        });
+
 
       // Set hash of current node
       hash[entry.title] = idCounter;
