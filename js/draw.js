@@ -7,6 +7,7 @@ var data = {};
 
 // Global counters
 var idCounter = 1;
+var clickedNode;
 var percentColors = [
   { pct: 0.0, color: { r: 0x00, g: 0xff, b: 0 } },
   { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
@@ -156,8 +157,9 @@ var percentColors = [
     network.on("click", function (params) {
 
       console.log(edges);
-      var clickedNode = params.nodes[0];
-      if(clickedNode){
+
+      if(params.nodes[0] && params.nodes[0]!=clickedNode){
+        clickedNode = params.nodes[0];
         network.moveNode(clickedNode,0,0);
 
         var numberNodes = nodes.length;
@@ -186,7 +188,7 @@ var percentColors = [
         });
 
         data.edges.update(updateArray);
-      
+
       }
 
 
