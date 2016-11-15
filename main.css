@@ -10,7 +10,7 @@ html, body {
   width: 100%;
   background-color: #222222;
 }
-#bottom {
+.bottom {
   position: absolute;
   background-color: #222222;
   right: 0;
