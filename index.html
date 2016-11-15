@@ -32,11 +32,11 @@
 
     <div class="bottom">
         <b class="text">Group by:&nbsp;</b>
-        <select id="easingFunction" class="option_button">
-        <option value="author">Author</option>
+        <select id="groupSelect" class="option_button" onchange="changeSelect();">
+          <option value="Was_written_by">Author</option>
 
-        <option value="category" >Category</option>
-        <option value="country" selected="selected">Country</option>
+          <option value="Category" >Category</option>
+          <option value="Has_country" selected="selected">Country</option>
 
         </select><br/>
     </div>

@@ -101,11 +101,23 @@ function draw(inputData) {
 
   function loadData(property){
 
-    property="Was_written_by";
+
+    if(!property){
+      property="Has_country";
+    }
+
+    console.log(property);
     $.getJSON('http://localhost:3031/query?property=' + property, function(data) {
       //data is the JSON string
       draw(data);
       //console.log(data);
     });
 
+  }
+
+
+  function changeSelect(){
+    var selectBox = document.getElementById("groupSelect");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    loadData(selectedValue);
   }

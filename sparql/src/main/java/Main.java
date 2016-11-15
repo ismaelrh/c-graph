@@ -63,7 +63,15 @@ public class Main {
     System.out.println("Query from" +  req.ip());
 
 
-    property = "<http://copyrightevidence.org/evidence-wiki/index.php/Special:URIResolver/Property-3A" + property + ">";
+    if(property.equalsIgnoreCase("category")){
+      property =  "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>";
+    }
+    else{
+      property = "<http://copyrightevidence.org/evidence-wiki/index.php/Special:URIResolver/Property-3A" + property + ">";
+    }
+
+
+
 
     res.header("Content-Type","application/json");
     //Check if it is in cache
