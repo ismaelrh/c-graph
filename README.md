@@ -19,6 +19,14 @@ developing two new features:
 * For each of the resulting nodes of these diagrams, display a *tag cloud* which
   contains the most mentioned *topics* inside the studies that made up these nodes.
 
+### 1.1. Interpretation
+
+
+### 1.2. Value
+
+Although it is possible for the wiki right now to display a list of studies
+belonging to a certain country, author or category, there is no way to visualise
+the relations created by the studies between these groups.
 
 ## 2. Grouping studies
 
@@ -71,3 +79,16 @@ Conclusions that can be extracted from the graph-style visualisation:
 Conclusions that can be extracted from the tag cloud:
 
 * Authors that write about these topics
+
+**(!!!) THIS IS NOT DEVELOPED YET**
+
+## 3. Data sets used
+
+As our data source we used [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
+from the Copyright Wiki. We exported all of them to [RDF](http://www.copyrightevidence.org/evidence-wiki/index.php/Special:ExportRDF)
+so we could load them in a database and make queries whose results we could use
+to develop our visualisations.
+
+The data showed in the *group by country* and *group by author* visualistaions is
+real, while the terms showed inside the *tag cloud* are invented (it's a collection
+of terms we arbitrarily picked up from the wiki).
