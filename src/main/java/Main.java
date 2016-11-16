@@ -75,8 +75,10 @@ public class Main {
 
 
     res.header("Content-Type","application/json");
+
+    createDirectoryIfDoesNotExist("resultCache");
     //Check if it is in cache
-    String fileName = normalizeCamelCase(property) + ".json";
+    String fileName = "resultCache/" + normalizeCamelCase(property) + ".json";
     File file = new File(fileName);
     try{
       if(file.exists() && file.isFile()){
@@ -87,6 +89,7 @@ public class Main {
 
         List<Node> graph =
           generateGroupingGraph(property);
+
 
 
         Formatter formatter = new Formatter(file);
@@ -312,6 +315,28 @@ public class Main {
     }
     else{
         return true;
+    }
+  }
+
+
+  private static void createDirectoryIfDoesNotExist(String directoryName){
+    File theDir = new File(directoryName);
+
+// if the directory does not exist, create it
+    if (!theDir.exists()) {
+      System.out.println("creating directory: " + directoryName);
+      boolean result = false;
+
+      try{
+        theDir.mkdir();
+        result = true;
+      }
+      catch(SecurityException se){
+        //handle it
+      }
+      if(result) {
+        System.out.println("DIR created");
+      }
     }
   }
 }
