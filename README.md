@@ -28,11 +28,14 @@ copyright policy makers we came up with the following:
 
 ### 1.1. Interpretation
 
-In our diagrams the size of the nodes represents the number of studies belonging
-to a certain group (same contry, same author, etc.).
+The groups of studies are displayed trhough *graph-style visualisations*.
 
-The width and color of the edges between two nodes represents the number of citations
-from studies in the first group to the second one.
+* The nodes represents the number of studies belonging to a certain group
+  (same contry, same author, etc.)
+* The width and color of the edges between two nodes represents the number of
+  citations from studies in the first group to the second one.
+
+![Diagram explanation](img/diagram-explanation.png)
 
 ### 1.2. Value
 
