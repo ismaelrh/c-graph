@@ -19,21 +19,6 @@ developing two new features:
 * For each of the resulting nodes of these diagrams, display a *tag cloud* which
   contains the most mentioned *topics* inside the studies that made up these nodes.
 
-### 1.1. Interpretation
-
-
-### 1.2. Value
-
-Although it is possible for the wiki right now to display a list of studies
-belonging to a certain country, author or category, there is no way to visualise
-the relations created by the studies between these groups.
-
-## 2. Grouping studies
-
-Visualisation tools right now don't have support for grouping studies.
-
-![Previous year](img/previous-year.png)
-
 When we tought about which kind of grouping criteria would be most useful to
 copyright policy makers we came up with the following:
 
@@ -41,13 +26,36 @@ copyright policy makers we came up with the following:
 * Grouping by **author**
 * Grouping by **categories**
 
+### 1.1. Interpretation
+
+In our diagrams the size of the nodes represents the number of studies belonging
+to a certain group (same contry, same author, etc.).
+
+The width and color of the edges between two nodes represents the number of citations
+from studies in the first group to the second one.
+
+### 1.2. Value
+
+Although it is possible for the wiki right now to display a list of studies
+belonging to a certain country, author or category, there is no way to visualise
+the relations created by the studies between these groups.
+
+The kind of visualisations we developed helps to discover relationships between
+the published copyright studies that otherwise wouldn't be possible.
+
+## 2. Grouping studies
+
+Visualisation tools right now don't have support for grouping studies.
+
+![Previous year](img/previous-year.png)
+
 This is the final result of our work:
 
 ![Current state](img/initial-state.png)
 
 ### 2.1. Grouping by country
 
-With this visualisation we can discover the following info:
+With this visualisation we can discover the following information:
 
 * The width of the arrow which connects countries A and B is proportional to the
   number of studies from A referencing studies from B. This shows us which
@@ -59,7 +67,7 @@ With this visualisation we can discover the following info:
 
 ### 2.2. Grouping by author
 
-With this visualisation we can discover the following info:
+With this visualisation we can discover the following information:
 
 * The width of the arrow which connects authors A and B is proportional to the
   number of studies published by A referencing studies published by B.
@@ -72,15 +80,7 @@ With this visualisation we can discover the following info:
 
 ### 2.3. Grouping by category
 
-Conclusions that can be extracted from the graph-style visualisation:
-
-* Lets you discover which topics are related (since they reference each other)
-
-Conclusions that can be extracted from the tag cloud:
-
-* Authors that write about these topics
-
-**(!!!) THIS IS NOT DEVELOPED YET**
+(**Not yet implemented**)
 
 ## 3. Data sets used
 
