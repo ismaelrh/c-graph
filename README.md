@@ -1,4 +1,4 @@
-# C-Graph project
+# ©-graph project
 
 This project was developed during the euHackathon 2016, whose objective was to
 develop tools related to the visualisation of copyright evidence and/or enhance
@@ -109,10 +109,12 @@ Requirements:
 
 
 Steps:
-1.- Download Jena-Fuseki server and create a dataset with the files provided in the "rdfFiles" folder. Leave the server running.
-2.- Go to 'src/main/java/resources/frontend' and execute `npm install`, so the Frontend dependencies are downloaded.
-3.- Execute the Web Server by executing 'runServer.sh' or 'runServer.bat' (Linux/Mac or Windows).
-4.- Access 'http://localhost:3030' and enjoy :)
+
+1. Download Jena-Fuseki server and create a dataset with the files provided in the "rdfFiles" folder. Leave the server running.
+2. Go to 'src/main/java/resources/frontend' and execute `npm install`, so the Frontend dependencies are downloaded.
+3. Execute the Web Server by executing 'runServer.sh' or 'runServer.bat' (Linux/Mac or Windows).
+4. Access 'http://localhost:3030' and enjoy :)
+
 
 Note: Due to having to calculate the data, the first times you use the system it can take long to render the nodes. Next times
 it will be almost immediate.

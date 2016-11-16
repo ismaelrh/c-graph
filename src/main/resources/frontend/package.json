@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ismaro3/euhackathon16.git"
+    "url": "git+https://github.com/ismaro3/c-graph.git"
   },
   "keywords": [
     "copyright",
@@ -26,7 +26,7 @@
   "author": "Alberto Miedes, Ismael Rodriguez, Raul Piraces",
   "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
-    "url": "https://github.com/ismaro3/euhackathon16/issues"
+    "url": "https://github.com/ismaro3/c-graph/issues"
   },
-  "homepage": "https://github.com/ismaro3/euhackathon16#readme"
+  "homepage": "https://github.com/ismaro3/c-graph#readme"
 }
