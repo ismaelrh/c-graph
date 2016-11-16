@@ -84,11 +84,9 @@ Conclusions that can be extracted from the tag cloud:
 
 ## 3. Data sets used
 
-As our data source we used [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
-from the Copyright Wiki. We exported all of them to [RDF](http://www.copyrightevidence.org/evidence-wiki/index.php/Special:ExportRDF)
-so we could load them in a database and make queries whose results we could use
-to develop our visualisations.
+To generate the data used in this project we use technologies from the Semantic Web. Specifically, we exported [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
+from the Copyright Wiki to RDF format and imported them into an SPARQL Endpoint. Then, using Apache Jena library on Java we performed semantic queries over the dataset. The use of Semantic Web technologies allowed us to obtain complex results about relations with simple SPARQL queries.
 
-The data showed in the *group by country* and *group by author* visualistaions is
+The data showed in the *group by country* and *group by author* visualisations is
 real, while the terms showed inside the *tag cloud* are invented (it's a collection
 of terms we arbitrarily picked up from the wiki).
