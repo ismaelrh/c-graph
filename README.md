@@ -1,4 +1,4 @@
-# Foobar project
+# C-Graph project
 
 This project was developed during the euHackathon 2016, whose objective was to
 develop tools related to the visualisation of copyright evidence and/or enhance
