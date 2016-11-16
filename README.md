@@ -1,4 +1,4 @@
-# Foobar project
+# C-Graph project
 
 This project was developed during the euHackathon 2016, whose objective was to
 develop tools related to the visualisation of copyright evidence and/or enhance
@@ -28,11 +28,14 @@ copyright policy makers we came up with the following:
 
 ### 1.1. Interpretation
 
-In our diagrams the size of the nodes represents the number of studies belonging
-to a certain group (same contry, same author, etc.).
+The groups of studies are displayed trhough *graph-style visualisations*.
 
-The width and color of the edges between two nodes represents the number of citations
-from studies in the first group to the second one.
+* The nodes represents the number of studies belonging to a certain group
+  (same contry, same author, etc.)
+* The width and color of the edges between two nodes represents the number of
+  citations from studies in the first group to the second one.
+
+![Diagram explanation](img/diagram-explanation.png)
 
 ### 1.2. Value
 
@@ -84,8 +87,13 @@ With this visualisation we can discover the following information:
 
 ## 3. Data sets used
 
-To generate the data used in this project we use technologies from the Semantic Web. Specifically, we exported [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
-from the Copyright Wiki to RDF format and imported them into an SPARQL Endpoint. Then, using Apache Jena library on Java we performed semantic queries over the dataset. The use of Semantic Web technologies allowed us to obtain complex results about relations with simple SPARQL queries. An overview of the System Architecture can be seen on the Figure below.
+To generate the data used in this project we use technologies from the Semantic
+Web. Specifically, we exported [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
+from the Copyright Wiki to RDF format and imported them into an SPARQL Endpoint.
+Then, using Apache Jena library on Java we performed semantic queries over the
+dataset. The use of Semantic Web technologies allowed us to obtain complex results
+about relations with simple SPARQL queries. An overview of the System Architecture
+can be seen on the Figure below.
 
 ![System Architecture](img/architecture.png)
 The data showed in the *group by country* and *group by author* visualisations is
