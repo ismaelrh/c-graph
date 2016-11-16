@@ -1,4 +1,4 @@
-# Foobar project
+# C-Graph project
 
 This project was developed during the euHackathon 2016, whose objective was to
 develop tools related to the visualisation of copyright evidence and/or enhance
@@ -87,9 +87,15 @@ With this visualisation we can discover the following information:
 
 ## 3. Data sets used
 
-To generate the data used in this project we use technologies from the Semantic Web. Specifically, we exported [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
-from the Copyright Wiki to RDF format and imported them into an SPARQL Endpoint. Then, using Apache Jena library on Java we performed semantic queries over the dataset. The use of Semantic Web technologies allowed us to obtain complex results about relations with simple SPARQL queries.
+To generate the data used in this project we use technologies from the Semantic
+Web. Specifically, we exported [all the pages](http://www.copyrightevidence.org/evidence-wiki/index.php/All_Studies)
+from the Copyright Wiki to RDF format and imported them into an SPARQL Endpoint.
+Then, using Apache Jena library on Java we performed semantic queries over the
+dataset. The use of Semantic Web technologies allowed us to obtain complex results
+about relations with simple SPARQL queries. An overview of the System Architecture
+can be seen on the Figure below.
 
+![System Architecture](images/architecture.png)
 The data showed in the *group by country* and *group by author* visualisations is
 real, while the terms showed inside the *tag cloud* are invented (it's a collection
 of terms we arbitrarily picked up from the wiki).
