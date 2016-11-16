@@ -95,7 +95,7 @@ dataset. The use of Semantic Web technologies allowed us to obtain complex resul
 about relations with simple SPARQL queries. An overview of the System Architecture
 can be seen on the Figure below.
 
-![System Architecture](images/architecture.png)
+![System Architecture](img/architecture.png)
 The data showed in the *group by country* and *group by author* visualisations is
 real, while the terms showed inside the *tag cloud* are invented (it's a collection
 of terms we arbitrarily picked up from the wiki).
