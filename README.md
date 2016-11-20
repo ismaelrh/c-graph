@@ -110,9 +110,9 @@ Requirements:
 
 Steps:
 
-1. Download Jena-Fuseki server and create a dataset with the files provided in the "rdfFiles" folder. Leave the server running.
-2. Go to 'src/main/java/resources/frontend' and execute `npm install`, so the Frontend dependencies are downloaded.
-3. Execute the Web Server by executing 'runServer.sh' or 'runServer.bat' (Linux/Mac or Windows).
+1. Download Jena-Fuseki server and create a dataset with the files provided in the `rdfFiles folder. Leave the server running.
+2. Go to `src/main/java/resources/frontend` and execute `npm install`, so the Frontend dependencies are downloaded.
+3. Execute the Web Server by executing `runServer.sh` or `runServer.bat` (Linux/Mac or Windows).
 4. Access 'http://localhost:3030' and enjoy :)
 
 
